@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Comunicación Eficaz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .nav-link.active {
+            background-color: #8B5CF6;
+            color: white;
+        }
+        .nav-link.active svg {
+            color: white;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d1d5db;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 lg:w-72 bg-white border-r border-slate-200 p-4 md:p-6 sticky top-0 md:h-screen overflow-y-auto">
+            <h1 class="text-2xl font-bold text-violet-700 mb-8">Comunicación Eficaz</h1>
+            <nav id="navigation" class="space-y-2">
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100 active" data-target="intro">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" /></svg>
+                    <span class="font-medium">Introducción</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="p1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /></svg>
+                    <span class="font-medium">1. Menos es Más</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="p2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4zm11.707 3.707a1 1 0 00-1.414-1.414L10 8.586 6.707 5.293a1 1 0 00-1.414 1.414L8.586 10l-3.293 3.293a1 1 0 101.414 1.414L10 11.414l3.293 3.293a1 1 0 001.414-1.414L11.414 10l3.293-3.293z" clip-rule="evenodd" /></svg>
+                    <span class="font-medium">2. Facilita la Lectura</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="p3">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                    <span class="font-medium">3. Diseña para Navegar</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="p4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h10a3 3 0 013 3v5a.997.997 0 01-.293-.707zM11 6a1 1 0 100-2H9a1 1 0 100 2h2zm2 1a1 1 0 10-2 0v2a1 1 0 102 0V7z" clip-rule="evenodd" /></svg>
+                    <span class="font-medium">4. Usa el Formato Justo</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="p5">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" /></svg>
+                    <span class="font-medium">5. Explica por qué Importa</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="p6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a6 6 0 00-6 6v3.586l-1.293 1.293a1 1 0 001.414 1.414L6 12.414V15a1 1 0 001 1h6a1 1 0 001-1v-2.586l2.293 2.293a1 1 0 001.414-1.414L14 11.586V8a6 6 0 00-6-6zm-4 6a4 4 0 118 0v3H6V8z" /></svg>
+                    <span class="font-medium">6. Facilita la Respuesta</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="summary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" /><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd" /></svg>
+                    <span class="font-medium">Resumen</span>
+                </a>
+                <a href="#" class="nav-link flex items-center p-3 rounded-lg transition-colors duration-200 hover:bg-violet-100" data-target="references">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3 text-violet-600" viewBox="0 0 20 20" fill="currentColor"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 16c1.255 0 2.443-.29 3.5-.804V4.804zM14.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 0114.5 16c1.255 0 2.443-.29 3.5-.804v-10A7.968 7.968 0 0014.5 4z" /></svg>
+                    <span class="font-medium">Referencias</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6 md:p-10 lg:p-12 overflow-y-auto">
+            <div id="content-container">
+                <!-- Introduction -->
+                <section id="intro" class="content-section active">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-4xl font-bold mb-4 text-slate-900">Bienvenido a la Comunicación Eficaz</h2>
+                        <p class="text-lg text-slate-600 mb-6">En el mundo actual, la atención es un recurso escaso. Ya no basta con "escribir bien", ahora debemos "escribir eficazmente". Este curso te enseñará a comunicarte de una manera que respete el tiempo del lector y garantice que tu mensaje no solo se reciba, sino que se entienda y se actúe en consecuencia.</p>
+                        <div class="bg-violet-50 border-l-4 border-violet-500 p-4 rounded-r-lg">
+                            <p class="text-violet-800">El objetivo ha cambiado: la responsabilidad de la comprensión recae ahora en el escritor, no en el lector. La escritura eficaz es un acto de empatía cognitiva.</p>
+                        </div>
+                        <p class="mt-6 text-slate-600">A través de seis principios prácticos, respaldados por la ciencia del comportamiento, aprenderás a transformar tu comunicación para lograr un mayor impacto en la era de la distracción.</p>
+                    </div>
+                </section>
+
+                <!-- Principio 1 -->
+                <section id="p1" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold mb-2 text-slate-900">Principio I: Menos es Más</h2>
+                        <p class="text-lg text-slate-500 mb-6">La gente no lee, escanea. La longitud de un texto es la primera señal que usan para estimar su "coste" en tiempo y esfuerzo.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Fundamento Científico</h3>
+                        <p class="text-slate-600 mb-4">Un mensaje largo intimida y provoca el "abandono prematuro". Experimentos demuestran que correos más cortos y directos obtienen casi el doble de respuestas. Incluso un email incoherente pero más corto puede superar a uno largo y lógico, demostrando que el coste de la longitud es un disuasivo más potente que el valor de la coherencia.</p>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Aplicación Estratégica</h3>
+                        <p class="text-slate-600 mb-4">Implementa la brevedad en tres niveles:</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Menos Palabras:</strong> Elimina relleno y redundancias. Cada palabra debe justificar su existencia.</li>
+                            <li><strong>Menos Ideas:</strong> Concéntrate en UNA idea principal por mensaje. Distingue entre lo "necesario" y lo "útil pero no esencial".</li>
+                            <li><strong>Menos Peticiones:</strong> Múltiples peticiones generan parálisis por elección. Pide una sola cosa para maximizar la probabilidad de que se cumpla.</li>
+                        </ul>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="text-lg font-semibold mb-4 text-slate-800">Manual de Verificación</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He eliminado todas las palabras y frases de relleno?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿Cuál es la ÚNICA idea que el lector DEBE llevarse?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿Estoy pidiendo una sola cosa?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>A primera vista, ¿el mensaje parece corto y accesible?</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Principio 2 -->
+                <section id="p2" class="content-section">
+                     <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold mb-2 text-slate-900">Principio II: Facilita la Lectura</h2>
+                        <p class="text-lg text-slate-500 mb-6">La escritura compleja impone una alta "carga cognitiva". El cerebro prefiere la fluidez y el mínimo esfuerzo.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Fundamento Científico</h3>
+                        <p class="text-slate-600 mb-4">El cerebro prefiere la "fluidez de procesamiento". El lenguaje sencillo, las palabras cortas y las oraciones directas reducen el esfuerzo. La voz activa ("El equipo decidió") es más fácil de procesar que la pasiva ("La decisión fue tomada"). Las frases largas aumentan la probabilidad de abandono.</p>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Aplicación Estratégica</h3>
+                        <p class="text-slate-600 mb-4">La simplicidad no es "rebajar el nivel", es una señal de respeto por el tiempo del lector y de dominio del tema. Un experto puede explicar algo complejo en términos sencillos. Esto combate la "maldición del conocimiento" (asumir que tu audiencia sabe lo mismo que tú) y promueve la inclusión.</p>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="text-lg font-semibold mb-4 text-slate-800">Manual de Verificación</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He reemplazado la jerga y las palabras complejas por alternativas sencillas?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿Son mis oraciones cortas y directas (idealmente 15-20 palabras)?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He usado la voz activa siempre que ha sido posible?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿El nivel de lectura es accesible para mi audiencia?</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Principio 3 -->
+                <section id="p3" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold mb-2 text-slate-900">Principio III: Diseña para una Navegación Sencilla</h2>
+                        <p class="text-lg text-slate-500 mb-6">Los lectores no procesan un texto de forma lineal. Escanean en busca de información relevante.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Fundamento Científico</h3>
+                        <p class="text-slate-600 mb-4">Un buen diseño actúa como un mapa, con "anclas visuales" que guían la atención. Añadir simples encabezados aumenta significativamente la probabilidad de que la gente siga leyendo. Una estructura visual no es un lujo, es una necesidad funcional.</p>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Aplicación Estratégica</h3>
+                        <p class="text-slate-600 mb-4">Piensa como un diseñador de interfaces, no como un narrador. Tu objetivo es ayudar al lector a encontrar lo que necesita con máxima eficiencia.</p>
+                        <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Encabezados Descriptivos:</strong> Deben ser funcionales, no creativos. Describen claramente el contenido que sigue.</li>
+                            <li><strong>Listas y Viñetas:</strong> Rompen bloques de texto densos y facilitan la digestión rápida de la información.</li>
+                            <li><strong>Espacio en Blanco:</strong> Reduce el desorden visual y la sensación de agobio. Usa párrafos cortos.</li>
+                             <li><strong>Pirámide Invertida:</strong> Lo más importante va al principio del documento, de cada sección y de cada párrafo.</li>
+                        </ul>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="text-lg font-semibold mb-4 text-slate-800">Manual de Verificación</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿El propósito del mensaje es evidente en los primeros segundos?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He usado encabezados para crear una jerarquía clara?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He usado párrafos cortos, listas y espacios en blanco?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿La conclusión o idea principal está al principio?</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Principio 4 -->
+                <section id="p4" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold mb-2 text-slate-900">Principio IV: Usa el Formato Suficiente, pero no Más</h2>
+                        <p class="text-lg text-slate-500 mb-6">El formato (negrita, cursiva) es una señal visual potente que dice: "esto es lo más importante".</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Fundamento Científico</h3>
+                        <p class="text-slate-600 mb-4">Resaltar una sección aumenta drásticamente la probabilidad de que se lea. Sin embargo, esto también da permiso implícito al lector para ignorar el resto. El uso excesivo de formatos crea "ruido visual" y devalúa el poder de cada señal. La recomendación es limitarse a 1 o 2 técnicas de formato por mensaje.</p>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Aplicación Estratégica</h3>
+                        <p class="text-slate-600 mb-4">Usa el formato como una herramienta quirúrgica. Al usar la <b>negrita</b>, prometes: "Si solo lees esto, entenderás el núcleo del mensaje". Si rompes esta promesa resaltando algo trivial, pierdes la confianza del lector. La consistencia es clave: usa el mismo formato para el mismo tipo de información.</p>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="text-lg font-semibold mb-4 text-slate-800">Manual de Verificación</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He limitado el uso de formatos a 1-2 técnicas como máximo?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿El texto formateado representa realmente la idea más importante?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿El formato ayuda a la claridad o solo crea ruido visual?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿Estoy usando el formato de manera consistente?</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Principio 5 -->
+                <section id="p5" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold mb-2 text-slate-900">Principio V: Dile al Lector por qué Debería Importarle</h2>
+                        <p class="text-lg text-slate-500 mb-6">El cerebro prioriza la información que es directamente relevante para sus propias metas o intereses.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Fundamento Científico</h3>
+                        <p class="text-slate-600 mb-4">Este es el "Principio Cero". Antes de evaluar cualquier otra cosa, el cerebro del lector se pregunta: "¿Esto me afecta a mí?". Si la respuesta es "no", el mensaje es descartado. Debes abandonar tu perspectiva ("lo que quiero decir") y adoptar la del lector ("lo que necesitas oír").</p>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Aplicación Estratégica</h3>
+                        <p class="text-slate-600 mb-4">Usa el marco WIIFM ("What's In It For Me?"). Un correo con el asunto "Sé voluntario" tuvo un rendimiento modesto. Otro, con el asunto "Ve a conciertos gratis mientras registras votantes", cuadruplicó los resultados. La tarea era la misma, pero el encuadre centrado en el beneficio del lector lo cambió todo. Aplica esto desde el asunto del correo o el título del documento.</p>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="text-lg font-semibold mb-4 text-slate-800">Manual de Verificación</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He escrito el mensaje desde la perspectiva de los beneficios para el lector?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿Queda claro desde el principio el valor o la implicación para quien lee?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He especificado a quién se dirige el mensaje y por qué?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿El asunto/título comunica el beneficio para el lector?</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Principio 6 -->
+                <section id="p6" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-3xl font-bold mb-2 text-slate-900">Principio VI: Facilita la Respuesta</h2>
+                        <p class="text-lg text-slate-500 mb-6">Un mensaje perfecto puede fracasar si la acción solicitada es ambigua o difícil de realizar.</p>
+                        
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Fundamento Científico</h3>
+                        <p class="text-slate-600 mb-4">Este principio se basa en reducir la "fricción". Cada paso, clic o duda en una petición es fricción, y la fricción es el mayor enemigo de la acción. La probabilidad de que alguien complete una tarea disminuye drásticamente con cada pequeño esfuerzo adicional. El sistema 1-Click de Amazon es el epítome de la baja fricción.</p>
+
+                        <h3 class="text-xl font-semibold mt-6 mb-3 text-violet-700">Aplicación Estratégica</h3>
+                        <p class="text-slate-600 mb-4">Tu trabajo no termina al pedir algo; debes diseñar una ruta de respuesta sin obstáculos. Sé un "arquitecto del comportamiento".</p>
+                         <ul class="list-disc list-inside space-y-2 text-slate-600">
+                            <li><strong>Claridad de la Acción:</strong> "Házmelo saber" es ambiguo. "Responde a este correo con un 'sí' antes de las 5 p.m." es claro.</li>
+                            <li><strong>Consolidación de la Información:</strong> Proporciona todos los datos necesarios (fechas, enlaces) en un solo lugar.</li>
+                            <li><strong>Reducción de Pasos:</strong> Haz el trabajo por el lector. En lugar de "¿cuándo te viene bien?", ofrece 2-3 horarios específicos.</li>
+                        </ul>
+
+                        <div class="mt-8 border-t pt-6">
+                            <h4 class="text-lg font-semibold mb-4 text-slate-800">Manual de Verificación</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿La acción que pido es específica, concreta e inequívoca?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He proporcionado toda la información necesaria para actuar de inmediato?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿He reducido el número de pasos, clics o decisiones al mínimo?</span></label>
+                                <label class="flex items-center p-3 bg-slate-100 rounded-lg"><input type="checkbox" class="h-5 w-5 rounded text-violet-600 focus:ring-violet-500 mr-3"><span>¿Estoy usando las herramientas más sencillas posibles (enlaces directos, etc.)?</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Summary -->
+                <section id="summary" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-4xl font-bold mb-4 text-slate-900">Resumen: Un Sistema Integrado</h2>
+                        <p class="text-lg text-slate-600 mb-6">Los seis principios no son reglas aisladas, sino un sistema holístico que funciona en conjunto. Se refuerzan mutuamente para guiar al lector a través de una experiencia de comunicación sin fricciones.</p>
+                        <div class="bg-violet-50 border-l-4 border-violet-500 p-4 rounded-r-lg mb-6">
+                            <p class="text-violet-800">El hilo conductor es un profundo respeto por los dos recursos más escasos del lector: <b>su tiempo y su atención</b>. La escritura eficaz es un acto de generosidad.</p>
+                        </div>
+                        <p class="text-slate-600">Dominar estas técnicas requiere práctica deliberada. Usa los manuales de verificación como una herramienta de auditoría para cada comunicación importante. Al hacerlo, transformarás tus palabras en potentes herramientas de persuasión, influencia e impacto en el mundo real.</p>
+                    </div>
+                </section>
+
+                <!-- References -->
+                <section id="references" class="content-section">
+                    <div class="max-w-4xl mx-auto bg-white p-8 rounded-xl shadow-lg">
+                        <h2 class="text-4xl font-bold mb-6 text-slate-900">Referencias</h2>
+                        <div class="prose prose-slate max-w-none">
+                            <p class="text-sm">Las ideas y principios de este curso se basan en la obra de Todd Rogers y Jessica Lasky-Fink, y en el análisis de diversas fuentes expertas. A continuación se presentan las referencias en formato APA 7.</p>
+                            <ul class="space-y-4 text-sm text-slate-600">
+                                <li>Rogers, T., & Lasky-Fink, J. (2023). <i>Writing for Busy Readers: Communicate More Effectively in the Real World</i>. Simon & Schuster.</li>
+                                <li>Cayley, W. E., Jr. (2024). Writing for Busy Readers: Communicate More Effectively in the Real World. <i>Family Medicine</i>, <i>56</i>(8), 589-590. <a href="https://doi.org/10.22454/FamMed.2024.384918" class="text-violet-600 hover:underline">https://doi.org/10.22454/FamMed.2024.384918</a></li>
+                                <li>Behavioral Scientist. (2023, 26 de septiembre). <i>When Writing for Busy Readers, Less Is More</i>. <a href="https://behavioralscientist.org/when-writing-for-busy-readers-less-is-more/" class="text-violet-600 hover:underline">https://behavioralscientist.org/when-writing-for-busy-readers-less-is-more/</a></li>
+                                <li>Harvard Gazette. (2023, 10 de octubre). <i>Tips on how to connect with people who don’t have time to read</i>. <a href="https://news.harvard.edu/gazette/story/2023/10/tips-on-how-to-connect-with-people-who-dont-have-time-to-read/" class="text-violet-600 hover:underline">https://news.harvard.edu/gazette/story/2023/10/tips-on-how-to-connect-with-people-who-dont-have-time-to-read/</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Navigation Buttons -->
+            <div class="max-w-4xl mx-auto mt-8 flex justify-between">
+                <button id="prevBtn" class="bg-white hover:bg-slate-100 text-slate-700 font-bold py-2 px-4 rounded-lg shadow transition-colors duration-200 border border-slate-200">Anterior</button>
+                <button id="nextBtn" class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-lg shadow transition-colors duration-200">Siguiente</button>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+
+            function updateContent(index) {
+                // Hide all sections
+                contentSections.forEach(section => section.classList.remove('active'));
+                // Deactivate all links
+                navLinks.forEach(link => link.classList.remove('active'));
+
+                // Show the target section and activate the link
+                if (contentSections[index]) {
+                    contentSections[index].classList.add('active');
+                }
+                if (navLinks[index]) {
+                    navLinks[index].classList.add('active');
+                }
+                
+                // Update button visibility
+                prevBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
+                nextBtn.style.visibility = index === contentSections.length - 1 ? 'hidden' : 'visible';
+
+                // Scroll to top of content on mobile
+                window.scrollTo(0, 0);
+            }
+
+            // Initial setup
+            updateContent(currentIndex);
+
+            // Navigation link clicks
+            navLinks.forEach((link, index) => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentIndex = index;
+                    updateContent(currentIndex);
+                });
+            });
+
+            // Previous button click
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateContent(currentIndex);
+                }
+            });
+
+            // Next button click
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < contentSections.length - 1) {
+                    currentIndex++;
+                    updateContent(currentIndex);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
